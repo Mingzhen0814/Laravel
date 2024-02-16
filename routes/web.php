@@ -22,3 +22,5 @@ Route::get('/upload',function(){
 });
 
 Route::post('/upload', FileController::class);
+
+Route::get('/download/{id}', [FileController::class,'download']);

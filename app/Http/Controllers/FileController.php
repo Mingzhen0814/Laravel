@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -16,5 +17,11 @@ class FileController extends Controller
         }
 
         return "No file uploads";
+    }
+
+    function download(int $id){
+        $data = Storage::get('documents/iios660pPTi7l62no8uJ0yx3q90CWDKS1KJUGDWg.jpg');
+        return response($data)
+                ->header('content-type', 'image/jpeg');
     }
 }
