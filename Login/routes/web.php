@@ -15,7 +15,20 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get("/test",function(){
-    return view("test");
+    // return view("test");
+
+    /*
+    // 了解登入者身分
+    if (Auth::check())
+        // {echo Auth::user()};
+        {echo Auth::id();}
+    else 
+        {echo "尚未登入";}
+    */
+
+    // 先以middleware判斷是否進入到路由
+    echo Auth::id()->middleware("auth");
+
 });
 
 Route::get('/', function () {
