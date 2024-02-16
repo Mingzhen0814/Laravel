@@ -26,8 +26,9 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
-
+        $request->user()->fill($request->validated()); 
+        // validate()會以JSON回傳requests的rules()的key
+        // fill會參考models的$fillable對應到JSON的值就會填入到資料庫
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
