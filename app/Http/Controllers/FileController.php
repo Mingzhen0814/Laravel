@@ -20,8 +20,15 @@ class FileController extends Controller
     }
 
     function download(int $id){
-        $data = Storage::get('documents/iios660pPTi7l62no8uJ0yx3q90CWDKS1KJUGDWg.jpg');
+        $filename = 'documents/iios660pPTi7l62no8uJ0yx3q90CWDKS1KJUGDWg.jpg';
+        $audiofilename = 'documents/INxALzkq08feWCWPGFBW1qyceR8VbnCN6wKHi4jH.mp3';
+        /*
+        $data = Storage::get($filename);
+        $mimeType = Storage::MimeType($filename);
         return response($data)
-                ->header('content-type', 'image/jpeg');
+             ->header('content-type', 'image/jpeg');
+    
+        */
+        return Storage::response($audiofilename);
     }
 }
