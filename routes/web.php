@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get("/test",function(){
+// Route::get("/test",function(){
     // return view("test");
 
     /*
@@ -27,9 +27,10 @@ Route::get("/test",function(){
     */
 
     // 先以middleware判斷是否進入到路由
-    echo Auth::id()->middleware("auth");
+    // echo Auth::id()->middleware("auth");
 
-});
+// });
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,6 +41,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    // 可直接在此新增路由就好
+    Route::get("/test",function(){echo Auth::id();});
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
