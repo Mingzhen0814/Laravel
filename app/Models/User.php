@@ -17,10 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // $fillable(資料型態: 陣列)會讓使用者在前端填入的資料自動填入至資料庫
     protected $fillable = [
+        // 欄位名稱
         'name',
         'email',
         'password',
+        'phone',
+        'image'
     ];
 
     /**
