@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get("/test",function(){
-    if (Auth::check()){
-        echo "已登入";
-    } else {
-        echo "尚未登入";
-    }
+    return view("test");
 });
 
 Route::get('/', function () {
