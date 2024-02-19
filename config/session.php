@@ -17,7 +17,7 @@ return [
     |            "memcached", "redis", "dynamodb", "array"
     |
     */
-
+    // redis也是一種資料庫，資料存在記憶體中，後端用來做cache
     'driver' => env('SESSION_DRIVER', 'file'),
 
     /*
@@ -31,9 +31,9 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 120),
+    'lifetime' => env('SESSION_LIFETIME', 120), // 專案的有效期限為兩小時
 
-    'expire_on_close' => false,
+    'expire_on_close' => false, // 瀏覽器關掉session會不會消失
 
     /*
     |--------------------------------------------------------------------------
